@@ -124,7 +124,10 @@ class Post {
 
 					</script>
 
-					<?
+					<?php
+
+					$comments_check = mysqli_query($this->con, "SELECT * FROM comments WHERE post_id='$id'");
+					$comments_check_num = mysqli_num_rows($comments_check);
 
 
 					//Timeframe
@@ -202,6 +205,10 @@ class Post {
 								<div id='post_body'>
 									$body
 									<br>
+								</div>
+
+								<div class='newsfeedPostOptions'>
+									Comments($comments_check_num)&nbsp;&nbsp;&nbsp;
 								</div>
 
 							</div>
