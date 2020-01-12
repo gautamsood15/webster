@@ -56,7 +56,17 @@
 
 
 	// Unlike Button
+	if (isset($_POST['like_button'])) {
+		$total_likes++;
+		$query = mysqli_query($con, "UPDATE posts SET likes='$total_likes' WHERE post_id='$post_id'");
+		$total_user_likes++;
+		$user_likes = mysqli_query($con, "UPDATE users SET num_likes='$total_user_likes' WHERE username='$user_liked'");
+		$insert_user = mysqli_query($con, "INSERT INTO likes VALUES(NULL, '$userLoggedIn', '$post_id')");
 
+		// Insert Notification
+
+		
+	}
 
 	//Check for previous likes
 
