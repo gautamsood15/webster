@@ -66,7 +66,6 @@
 		$post_body = mysqli_escape_string($con, $post_body);
 		$date_time_now = date("Y-m-d H:i:s");
 		$insert_post = mysqli_query($con, "INSERT INTO comments VALUES (NULL, '$post_body', '$userLoggedIn', '$posted_to', '$date_time_now', 'no', '$post_id')");
-		echo "Error: " . mysqli_error($con);
 		echo "<p>Commnet Posted! </p>";
 	}
 
@@ -164,10 +163,14 @@
 	?>
 
 	<div class="comment_section">
+
 		<a href="<?php echo $posted_by ?>" target="_parent"><img src="<?php echo $user_obj->getProfilePic(); ?>" title="<?php echo $posted_by; ?>" style="float: left;" height="30"></a>
 
 		<a href="<?php echo $posted_by ?>" target="_parent"> <b> <?php echo $user_obj->getFirstAndLastName(); ?> </b> </a>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $time_message . "<br>" . $comment_body; ?>
+		<hr>
+
+
 	</div>
 
 
@@ -176,6 +179,13 @@
 	<?php
 
 		}
+
+	?>
+
+	<p style="text-align: center;">No More Comments to Show</p>
+
+	<?php	
+
 	}
 	else {
 		echo "<center><br><br>No Comments to Show!</center>";
