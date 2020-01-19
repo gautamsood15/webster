@@ -60,19 +60,7 @@
 		}
 	}
 
-	public function didReceiveRequest($user_to) {
-		$user_from = $this->user['username'];
-		$check_request_query = mysqli_query($this->con, "SELECT * FROM friend_requests WHERE user_to='$user_to' AND user_from='$user_from'");
-		if (mysqli_num_rows($check_request_query) > 0) {
-			return true;
-		}
-		else {
-			return false;
-		}
-
-	}
-
-	public function didSendRequest($user_from) {
+	public function didReceiveRequest($user_from) {
 		$user_to = $this->user['username'];
 		$check_request_query = mysqli_query($this->con, "SELECT * FROM friend_requests WHERE user_to='$user_to' AND user_from='$user_from'");
 		if (mysqli_num_rows($check_request_query) > 0) {
@@ -84,12 +72,24 @@
 
 	}
 
-	public fucntion removeFriend($user_to_remove) {
+	public function didSendRequest($user_to) {
+		$user_from = $this->user['username'];
+		$check_request_query = mysqli_query($this->con, "SELECT * FROM friend_requests WHERE user_to='$user_to' AND user_from='$user_from'");
+		if (mysqli_num_rows($check_request_query) > 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+
+	}
+
+	public function removeFriend($user_to_remove) {
 		$logged_in_user = $this->user['username'];
 
 		$query = mysqli_query($this->con, "SELECT friend_array FROM users WHERE username='$user_to_remove'");
-		$row = mysqli_fetch_query($query);
-		$friend_arry_username = $row['friend_array'];
+		$row = mysqli_fetch_array($query);
+		$friend_array_username = $row['friend_array'];
 
 		$new_friend_array = str_replace($user_to_remove . ",", "", $this->user['friend_array']);
 		$remove_friend = mysqli_query($this->con, "UPDATE users SET friend_array='$new_friend_array' WHERE username='$logged_in_user'");
@@ -98,8 +98,10 @@
 		$remove_friend = mysqli_query($this->con, "UPDATE users SET friend_array='$new_friend_array' WHERE username='$user_to_remove'");
 	}
 
+	public function sendRequest($user_to) {
+		$user_from = $this->user['username'];
+		$query = mysqli_query($this->con, "INSERT INTO friend_requests VALUES(NULL, '$user_to', '$user_from')");
+	}
 }
-
-
 
 ?>
