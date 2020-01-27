@@ -61,7 +61,7 @@
 				<i class="fa fa-cog fa-lg"></i>
 			</a>	
 			<a href="includes/handlers/logout.php">
-				<i class="fa fa-space-shuttle fa-lg"></i>
+				<i class="fa fa-power-off fa-lg"></i>
 			</a>		
 		</nav>
 
