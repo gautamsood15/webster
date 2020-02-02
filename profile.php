@@ -1,6 +1,8 @@
 <?php 
 include("includes/header.php");
 
+$message_obj = new Message($con, $userLoggedIn);
+
 if(isset($_GET['profile_username'])) {
 	$username = $_GET['profile_username'];
 	$user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$username'");
@@ -22,6 +24,22 @@ if(isset($_POST['add_friend'])) {
 }
 if(isset($_POST['respond_request'])) {
 	header("Location: requests.php");
+}
+
+if (isset($_POST['post_message'])) {
+  if (isset($_POST['message_body'])) {
+    $body = mysqli_real_escape_string($con, $_POST['message_body']);
+    $date = date("Y-m-d H:i:s");
+    $message_obj->sendMessage($username, $body, $date);
+  }
+
+  $link = '#profileTabs a[href="#messages_div"]';
+  echo "<script>
+          $(function() {
+            $('" . $link ."').tab('show');
+          });
+        </script>";
+
 }
 
  ?>
@@ -108,8 +126,6 @@ if(isset($_POST['respond_request'])) {
 
       <div role="tabpanel" class="tab_pane fade" id="messages_div">
           <?php  
-                $message_obj = new Message($con, $userLoggedIn);
-   
                 echo "<h4>You and <a href='" . $username . "'>" . $profile_user_obj->getFirstAndLastName() . "</a></h4><hr><br>";
 
                 echo "<div class='loaded_messages' id='scroll_messages'>";
