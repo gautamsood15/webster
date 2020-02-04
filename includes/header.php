@@ -53,7 +53,7 @@ else {
 			<a href="index.php">
 				<i class="fa fa-home fa-lg"></i>
 			</a>
-			<a href="javascript:void(0);" onclick="getDropdownData(<?php echo $userLoggedIn; ?>, 'message')">
+			<a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')">
 				<i class="fa fa-envelope fa-lg"></i>
 			</a>
 			<a href="#">
