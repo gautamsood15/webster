@@ -179,12 +179,12 @@ class Message {
 		$return_string = "";
 		$convos = array();
 
-		if ($page == 1)
+		if($page == 1)
 			$start = 0;
-		else:
-			$start = ($page - 1) * limit;
+		else 
+			$start = ($page - 1) * $limit;
 
-		$set_viewed_query = mysqli_query($this->con, "UPDATE messages SET viesed='yes' WHERE user_to='$userLoggedIn'");
+		$set_viewed_query = mysqli_query($this->con, "UPDATE messages SET viewed='yes' WHERE user_to='$userLoggedIn'");
 
 		$query = mysqli_query($this->con, "SELECT user_to, user_from FROM messages WHERE user_to='$userLoggedIn' OR user_from='$userLoggedIn' ORDER BY id DESC");
 
@@ -196,21 +196,24 @@ class Message {
 			}
 		}
 
-		$num_iterations = 0;
-		$count = 1;
+		$num_iterations = 0; //Number of messages checked 
+		$count = 1; //Number of messages posted
 
 		foreach($convos as $username) {
-			
-			if ($num_iterations++ < $start)
+
+			if($num_iterations++ < $start)
 				continue;
-			if ($count > $limit)
+
+			if($count > $limit)
 				break;
-			else
+			else 
 				$count++;
+
 
 			$is_unread_query = mysqli_query($this->con, "SELECT opened FROM messages WHERE user_to='$userLoggedIn' AND user_from='$username' ORDER BY id DESC");
 			$row = mysqli_fetch_array($is_unread_query);
-			$style = (isset($row['opened']) && $row['opened'] == 'no') ? "background-color: #DDEDFF;" : "";
+			$style = ($row['opened'] == 'no') ? "background-color: #DDEDFF;" : "";
+
 
 			$user_found_obj = new User($this->con, $username);
 			$latest_message_details = $this->getLatestMessage($userLoggedIn, $username);
@@ -219,7 +222,8 @@ class Message {
 			$split = str_split($latest_message_details[1], 12);
 			$split = $split[0] . $dots; 
 
-			$return_string .= "<a href='messages.php?u=$username'> <div class='user_found_messages'>
+			$return_string .= "<a href='messages.php?u=$username'> 
+								<div class='user_found_messages' style='" . $style . "'>
 								<img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 5px; margin-right: 5px;'>
 								" . $user_found_obj->getFirstAndLastName() . "
 								<span class='timestamp_smaller' id='grey'> " . $latest_message_details[2] . "</span>
@@ -228,10 +232,18 @@ class Message {
 								</a>";
 		}
 
+
+		//If posts were loaded
+		if($count > $limit)
+			$return_string .= "<input type='hidden' class='nextPageDropdownData' value='" . ($page + 1) . "'><input type='hidden' class='noMoreDropdownData' value='false'>";
+		else 
+			$return_string .= "<input type='hidden' class='noMoreDropdownData' value='true'> <p style='text-align: center;'>No more messages to load!</p>";
+
 		return $return_string;
+	
+	}
 
 	}
-	}
-}
+
 
 ?>
