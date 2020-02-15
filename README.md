@@ -97,6 +97,19 @@ TABLE_NAME = messages
 8 	deleted 	     varchar(3)	
 
 
+TABLE_NAME  = notifications
+
+
+1 	id Primary 	     int(11) 			 PRIMARY(AI)
+2 	user_to 	     varchar(50) 	
+3 	user_from 	     varchar(50) 	
+4 	message 	     text 	
+5 	link 	         varchar(100) 	
+6 	datetime 	     datetime 	
+7 	opened 	         varchar(3) 	
+8 	viewed 	         varchar(3) 	
+
+
 
 
 
