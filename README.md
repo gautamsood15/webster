@@ -9,7 +9,7 @@ Xampp server is required to run the search engine
 Schema for database for saving all the sites data.
 
 
-List of external 3 party CDN used --
+List of external 4 party CDN used --
 
 1 bootstrap
 2 jquery
