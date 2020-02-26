@@ -19,13 +19,15 @@ else
 
 if ($query != "") {
 
+	echo "<br>";
+
 	while ($row = mysqli_fetch_array($usersReturnedQuery)) {
 		$user = new User($con, $userLoggedIn);
 
 		if ($row['username'] != $userLoggedIn)
 			$mutual_friends = $user->getMutualFriends($row['username']) . " friends in common";
 		else
-			$mutual_friends == "";
+			$mutual_friends = "";
 
 		echo "<div class='resultDisplay'>
 				<a href='" . $row['username'] . "' style='color: #14858D'>
