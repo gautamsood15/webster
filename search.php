@@ -37,12 +37,12 @@
 			if(count($names) == 3)
 				$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' AND last_name LIKE '$names[2]%') AND user_closed='no'");
 		// If query has one word only, search first names or last names 
-		else if (count($names) == 2)
+			else if (count($names) == 2)
 
-			$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' AND last_name LIKE '$names[1]%') AND user_closed='no'");
+				$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' AND last_name LIKE '$names[1]%') AND user_closed='no'");
 
-		else
-			$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$names[0]%') AND user_closed='no'");
+			else
+				$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$names[0]%') AND user_closed='no'");
 
 		}
 
@@ -81,7 +81,29 @@
 
 			}
 
-		}
+			echo "<div class='search_result'>
+					<div class='searchPageFriendButtons'>
+						<form action='' method='POST'>
+							" . $button . "
+							<br>
+						</form>
+					</div>
+
+
+					<div class='result_profile_pic'>
+						<a href='" . $row['username'] ."'><img src='". $row['profile_pic'] ."' style='height: 100px;'></a>
+					</div>
+
+						<a href='". $row['username'] ."'> ".$row['first_name'] . " " . $row['last_name'] . "
+						<p id='grey'> " . $row['username'] ."</p>
+						</a>
+						<br>
+						" . $mutual_friends ."<br>
+
+				</div>
+				<hr>";
+
+		} // End While
 
 	}
 
