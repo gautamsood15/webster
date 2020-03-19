@@ -6,7 +6,6 @@ class Message {
 	public function __construct($con, $user){
 		$this->con = $con;
 		$this->user_obj = new User($con, $user);
-	
 	}
 
 	public function getMostRecentUser() {
@@ -34,7 +33,6 @@ class Message {
 			$userLoggedIn = $this->user_obj->getUsername();
 			$query = mysqli_query($this->con, "INSERT INTO messages VALUES(NULL, '$user_to', '$userLoggedIn', '$body', '$date', 'no', 'no', 'no')");
 		}
-
 	}
 
 	public function getMessages($otherUser) {
@@ -54,7 +52,6 @@ class Message {
 			$data = $data . $div_top . $body . "</div><br><br>";
 		}
 		return $data;
-
 	}
 
 	public function getLatestMessage($userLoggedIn, $user2) {
@@ -134,7 +131,6 @@ class Message {
 		array_push($details_array, $time_message);
 
 		return $details_array;
-
 	}
 
 	public function getConvos() {
@@ -241,7 +237,6 @@ class Message {
 			$return_string .= "<input type='hidden' class='noMoreDropdownData' value='true'> <br><p style='text-align: center;'>No more messages to load!</p>";
 
 		return $return_string;
-	
 	}
 
 	public function getUnreadNumber() {
@@ -251,6 +246,5 @@ class Message {
 	}
 
 }
-
 
 ?>

@@ -24,6 +24,7 @@
 	require 'config/config.php';
 	include("includes/classes/User.php");
 	include("includes/classes/Post.php");
+	include("includes/classes/Notification.php");
 
 	if (isset($_SESSION['username'])) {
 		$userLoggedIn = $_SESSION['username'];
@@ -57,9 +58,9 @@
 		$insert_user = mysqli_query($con, "INSERT INTO likes VALUES(NULL, '$userLoggedIn', '$post_id')");
 
 		//Insert Notification
-		if ($user_liked != $userLoggedIn) {
-			$notification = new Notification($this->con, $userLoggedIn);
-			$notification->insertNotification($post_id, $user_to, "profile_post");
+		if($user_liked != $userLoggedIn) {
+			$notification = new Notification($con, $userLoggedIn);
+			$notification->insertNotification($post_id, $user_liked, "like");
 		}
 	}
 	//Unlike button
@@ -68,7 +69,7 @@
 		$query = mysqli_query($con, "UPDATE posts SET likes='$total_likes' WHERE id='$post_id'");
 		$total_user_likes--;
 		$user_likes = mysqli_query($con, "UPDATE users SET num_likes='$total_user_likes' WHERE username='$user_liked'");
-		$insert_user = mysqli_query($con, "DELETE FROM likes WHERE username='$userLoggedIn' AND post_id='$post_id'");		
+		$insert_user = mysqli_query($con, "DELETE FROM likes WHERE username='$userLoggedIn' AND post_id='$post_id'");
 	}
 
 	//Check for previous likes
@@ -79,7 +80,7 @@
 		echo '<form action="like.php?post_id=' . $post_id . '" method="POST">
 				<input type="submit" class="comment_like" name="unlike_button" value="Unlike">
 				<div class="like_value">
-					'. $total_likes .' 
+					'. $total_likes .'
 				</div>
 			</form>
 		';
@@ -88,7 +89,7 @@
 		echo '<form action="like.php?post_id=' . $post_id . '" method="POST">
 				<input type="submit" class="comment_like" name="like_button" value="Like">
 				<div class="like_value">
-					'. $total_likes .' 
+					'. $total_likes .'
 				</div>
 			</form>
 		';

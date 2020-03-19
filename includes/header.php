@@ -19,7 +19,7 @@ else {
 
 <html>
 <head>
-	<title>Welcome to Webster!</title>
+	<title>Welcome to Webster</title>
 
 	<!-- Javascript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -30,14 +30,11 @@ else {
 	<script src="assets/js/jcrop_bits.js"></script>
 
 
-
-
 	<!-- CSS -->
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css" />
-	
 </head>
 <body>
 
@@ -47,17 +44,41 @@ else {
 			<a href="index.php">Webster!</a>
 		</div>
 
-		<nav>
 
+		<div class="search">
+
+			<form action="search.php" method="GET" name="search_form">
+				<input type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name="q" placeholder="Search..." autocomplete="off" id="search_text_input">
+
+				<div class="button_holder">
+					<img src="assets/images/icons/search_box.png">
+				</div>
+
+			</form>
+
+			<div class="search_results">
+			</div>
+
+			<div class="search_results_footer_empty">
+			</div>
+
+
+
+		</div>
+
+		<nav>
 			<?php
-				//Unread messages
+				//Unread messages 
 				$messages = new Message($con, $userLoggedIn);
 				$num_messages = $messages->getUnreadNumber();
 
-				//Unread notifications
+				//Unread notifications 
 				$notifications = new Notification($con, $userLoggedIn);
 				$num_notifications = $notifications->getUnreadNumber();
 
+				//Unread notifications 
+				$user_obj = new User($con, $userLoggedIn);
+				$num_requests = $user_obj->getNumberOfFriendRequests();
 			?>
 
 
@@ -70,19 +91,23 @@ else {
 			<a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')">
 				<i class="fa fa-envelope fa-lg"></i>
 				<?php
-				if ($num_messages > 0)
-					echo '<span class="notification_badge" id="unread_message">' . $num_messages . '</span>';
+				if($num_messages > 0)
+				 echo '<span class="notification_badge" id="unread_message">' . $num_messages . '</span>';
 				?>
 			</a>
 			<a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'notification')">
 				<i class="fa fa-bell fa-lg"></i>
 				<?php
-				if ($num_notifications > 0)
-					echo '<span class="notification_badge" id="unread_notification">' . $num_notifications . '</span>';
+				if($num_notifications > 0)
+				 echo '<span class="notification_badge" id="unread_notification">' . $num_notifications . '</span>';
 				?>
 			</a>
 			<a href="requests.php">
 				<i class="fa fa-users fa-lg"></i>
+				<?php
+				if($num_requests > 0)
+				 echo '<span class="notification_badge" id="unread_requests">' . $num_requests . '</span>';
+				?>
 			</a>
 			<a href="#">
 				<i class="fa fa-cog fa-lg"></i>
@@ -90,10 +115,13 @@ else {
 			<a href="includes/handlers/logout.php">
 				<i class="fa fa-sign-out fa-lg"></i>
 			</a>
+
 		</nav>
 
-		<div class="dropdown_data_window" style="height: 0px; border:none;"></div>
+		<div class="dropdown_data_window" style="height:0px; border:none;"></div>
 		<input type="hidden" id="dropdown_data_type" value="">
+
+
 	</div>
 
 
@@ -145,11 +173,6 @@ else {
 	});
 
 	</script>
-
-
-
-
-
 
 
 	<div class="wrapper">
