@@ -1,6 +1,6 @@
 <?php
 include("includes/header.php");
-//include("includes/settings_handler.php");
+include("includes/settings_handler.php");
 ?>
 
 <div class="main_column column">
@@ -18,6 +18,7 @@ include("includes/header.php");
 		First Name: <input type="text" name="first_name" value="<?php echo $user['first_name']; ?>"><br>
 		Last Name: <input type="text" name="last_name" value="<?php echo $user['last_name']; ?>"><br>
 		Email: <input type="text" name="email" value="<?php echo $user['email']; ?>"><br>
+		<input type="submit" name="update_details" id="save_details" value="Update Details"><br>
 	</form>
 
 	<h4>Change Password</h4>
@@ -25,6 +26,7 @@ include("includes/header.php");
 		Old Password: <input type="password" name="old_password"><br>
 		New Password: <input type="password" name="new_password_1"><br>
 		New Password Again: <input type="password" name="new_password_2"><br>
+		<input type="submit" name="update_password" id="save_details" value="Update Password"><br>
 	</form>
 
 	<h4>Close Account</h4>
