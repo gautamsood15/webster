@@ -42,7 +42,7 @@
 	public function isFriend($username_to_check) {
 		$usernameComma = "," . $username_to_check . ",";
 
-		if ((strstr($this->user['friend_array'], $usernameComma) || $username_to_check == $this->user['username']) {     // check if user is a friend or  the user itself
+		if ((strstr($this->user['friend_array'], $usernameComma) || $username_to_check == $this->user['username'])) {     // check if user is a friend or  the user itself
 			return true;
 		}
 		else {
