@@ -40,7 +40,7 @@
 			
 
 			<div class="posts_area"></div>
-			<img id="#loading" src="assets/images/icons/loading.gif">
+			<img id="loading" src="assets/images/icons/loading.gif">
 
 		</div>
 
@@ -73,7 +73,7 @@
 					var height = $('.posts_area').height(); // DIV containing posts
 					var scroll_top = $(this).scrollTop();
 					var page = $('.posts_area').find('.nextPage').val();
-					var noMorePosts = $('posts_area').find('.noMorePosts').val();
+					var noMorePosts = $('.posts_area').find('.noMorePosts').val();
 
 
 					if((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false') {
@@ -98,7 +98,7 @@
 					}  // End if
 
 					return false;
-					
+
 				});  // End (window).scroll(function()
 
 
