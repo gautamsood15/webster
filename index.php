@@ -91,12 +91,15 @@
 								$('.posts_area').find('.noMorePosts').remove(); 
 
 								$('#loading').hide();
-								$('.posts_area').html(response);
+								$('.posts_area').append(response);
 							}
 
 						});	
-					}
-				});
+					}  // End if
+
+					return false;
+					
+				});  // End (window).scroll(function()
 
 
 			});
