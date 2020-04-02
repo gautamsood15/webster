@@ -202,7 +202,8 @@ class Post {
 
 						</div>
 
-					</div>";
+					</div>
+					<hr>";
 
 
 		}
