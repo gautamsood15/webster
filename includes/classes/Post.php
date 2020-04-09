@@ -17,7 +17,7 @@ class Post {
 
 		if ($check_empty != "") {
 
-			$date_added = date("Y-md H:i:s");
+			$date_added = date("Y-m-d H:i:s");
 			$added_by = $this->user_obj->getUsername();
 
 
@@ -27,6 +27,21 @@ class Post {
 				$user_to = "none";
 			}
 
+			//Insert Post to DB
+
+			$query = mysqli_query($this->con, "INSERT INTO posts VALUES(NULL,'$body','$added_by', '$user_to', '$date_added', 'no', 'no', '0')");
+			
+			$returned_id = mysqli_insert_id($this->con);
+
+
+			//Insert Notification
+
+
+			//Update post count for user
+			$num_posts = $this->user_obj->getNumPosts();
+			$num_posts++;
+			$update_query = mysqli_query($this->con, "UPDATE users SET num_posts='$num_posts' WHERE username='$added_by'");
+			
 		}
 		
 	}
