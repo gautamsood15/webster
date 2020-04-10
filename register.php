@@ -13,6 +13,9 @@
 <head>
 	<title>Welcome to Webster!</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/register_style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/register.js"></script>
+	
 </head>
 <body>
 
@@ -26,6 +29,7 @@
 		</div>
 
 
+		<div id="first">
 			<form action="register.php" method="POST">
 				
 				<input type="email" name="log_email" placeholder="Email Address" value="<?php 
@@ -47,12 +51,14 @@
 				
 				<?php if(in_array("Email or password was incorrect<br>", $error_array)) echo "Email or password was incorrect<br>"; ?>
 
+				<a href="#" id="signup" class="signup">Need an account? Register here!</a>
 
-			</form>	
+			</form>
+		</div>	
 
 
-
-
+		<div id="second">
+			
 			<form action="register.php" method="POST">                                        
 				<input type="text" name="reg_fname" placeholder="First Name" value="<?php 
 					if(isset($_SESSION['reg_fname'])) {
@@ -116,8 +122,13 @@
 				
 				<?php if(in_array("<span style='color: #14C800;'>You're all set! Go ahead and Login</span>", $error_array)) echo "<span style='color: #14C800;'>You're all set! Go ahead and Login</span>" ?>
 
-
+				<a href="#" id="signin" class="signin">Already have an account? Sign in here!</a>
 			</form>
+
+		</div>
+
+
+			
 		</div>
 	</div>
 

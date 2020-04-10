@@ -25,12 +25,19 @@ body  {
 	background-image: url("../images/backgrounds/desktop.jpg");
 }
 
+a {
+	text-decoration: none;
+	color: #2c3e50;
+}
+
+
+
 .login_box {
 	font-family: 'Bellota-LightItalic', sans-serif;
 	position: relative;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 2%;
+	margin-top: 4%;
 	width: 35%;
 	background-color: #ffffff;
 	border: 1px solid #EDEDED;
@@ -84,4 +91,8 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
 	border-color: #2980b9;
+}
+
+#second {
+	display: none;
 }
