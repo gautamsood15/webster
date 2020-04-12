@@ -1,6 +1,6 @@
 <?php
 	include("includes/header.php");
-
+	include("includes/classes/User.php");
 
 ?>
 
@@ -29,6 +29,15 @@
 
 			</form>
 			
+			<?php
+
+				$user_obj = new User($con, $userLoggedIn);
+				echo $user_obj->getFirstAndLastName();
+			?>
+
+
+
+
 		</div>
 
 	</div>
