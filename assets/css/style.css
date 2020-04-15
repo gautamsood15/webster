@@ -110,19 +110,40 @@ nav a:hover {
 }
 
 .post_form textarea {
-	width: 80%;
+	width: 92%;
 	height: 60px;
-	border-radius: 5px;
+	border-radius: 3px;
 	margin-right: 5px;
 	border: 1px solid #D3D3D3;
 	font-size: 12px;
+	padding: 5px;
 }
 
 textarea:focus {
 	outline: 0;
 }
 
+.post_form input[type="submit"] {
+	width: 5%;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	background-color: #2c3e50;
+	font-family: 'Bellota-BoldItalic', sans-serif;
+	color: #95a5a6;
+	text-shadow: #95a5a6 0.5px 0.5px 0px;
+	font-size: 90%;
+	position: absolute;
+	outline: 0;
+	margin-top: 30px;
+	margin-left: 3px;
 
+}
+
+.post_form input[type="submit"]:active {
+	padding: 5px 3px 3px 5px;
+
+}
 
 
 
