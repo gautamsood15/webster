@@ -126,12 +126,20 @@
 //-----------------------------------------Profile Picture Assignment-------------------------------------
 
 
-			$rand = rand(1, 2);  // select between 1 and 2 randomly
+			$rand = rand(1, 6);  // select between 1 and 6 randomly
 
 			if ($rand == 1) 
-				$profile_pic = "/assets/images/profile_pics/defaults/profile_pic_1.png";  
+				$profile_pic = "assets/images/profile_pics/defaults/profile_pic_1.png";  
 			else if($rand == 2)
-				$profile_pic = "/assets/images/profile_pics/defaults/profile_pic_2.png";
+				$profile_pic = "assets/images/profile_pics/defaults/profile_pic_2.png";
+			else if($rand == 3)
+				$profile_pic = "assets/images/profile_pics/defaults/profile_pic_3.png";
+			else if($rand == 4)
+				$profile_pic = "assets/images/profile_pics/defaults/profile_pic_4.png";
+			else if($rand == 5)
+				$profile_pic = "assets/images/profile_pics/defaults/profile_pic_5.png";
+			else if($rand == 6)
+				$profile_pic = "assets/images/profile_pics/defaults/profile_pic_6.png";
 
 
 
