@@ -45,7 +45,7 @@
 			<a href="#">
 				<?php echo $user['first_name']; ?>
 			</a>
-			<a href="#">
+			<a href="index.php">
 				<i class="fa fa-home fa-lg"></i>
 			</a>
 			<a href="#">
@@ -64,5 +64,7 @@
 
 
 	</div>
+
+	<div class="wrapper">
 
 
