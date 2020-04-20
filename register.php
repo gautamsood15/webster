@@ -15,9 +15,29 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/register_style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/js/register.js"></script>
-	
+
 </head>
 <body>
+
+
+	<?php 
+
+		if(isset($_POST['register_button'])) {
+			echo '
+				<script>
+				
+					$(document).ready(function() {
+						$("#first").hide();
+						$("#second").show();
+					});
+
+				</script>
+			';
+		}
+
+	?>
+
+
 
 	<div class="wrapper">
 
