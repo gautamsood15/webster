@@ -17,7 +17,14 @@
 <body>
 
 	<div class="wrapper">
+
 		<div class="login_box">
+
+		<div class="login_header">
+			<h1>Webster!</h1>
+			Login or Sign Up
+		</div>
+
 
 			<form action="register.php" method="POST">
 				
