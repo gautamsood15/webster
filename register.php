@@ -12,6 +12,7 @@
 <html>
 <head>
 	<title>Welcome to Webster!</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/register_style.css">
 </head>
 <body>
 
