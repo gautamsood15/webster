@@ -18,6 +18,13 @@
 			header("Location: index.php");                     // redirects the page to index.php once login
 			exit();
 		}
+
+
+//Error handler code from here 
+
+		else {
+			array_push($error_array, "Email or password was incorrect<br>");
+		}
 	}
 
 
