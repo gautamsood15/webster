@@ -149,6 +149,14 @@
 			$query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$fname', '$lname', '$username', '$em', '$password', '$date', '$profile_pic', '0', '0', 'no', ',')");
 
 			array_push($error_array, "<span style='color: #14C800;'>You're all set! Go ahead and Login</span>");
+
+//---------------------------Clear Session variables ---------------------------------------------------
+
+			$_SESSION['reg_fname'] = "";
+			$_SESSION['reg_lname'] = "";
+			$_SESSION['reg_email'] = "";
+			$_SESSION['reg_email2'] = "";
+
 		}
 	}
 
