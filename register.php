@@ -125,7 +125,16 @@
 				
 			}
 
-			$profile_pic = "/assets/images/profile_pic/defaults/default_profile_pic.jpeg";    // Profile Picture Assignment
+
+//-----------------------------------------Profile Picture Assignment-------------------------------------
+
+
+			$rand = rand(1, 2);  // select between 1 and 2 randomly
+
+			if ($rand == 1) 
+				$profile_pic = "/assets/images/profile_pic/defaults/profile_pic_1.png";  
+			else if($rand == 2)
+				$profile_pic = "/assets/images/profile_pic/defaults/profile_pic_2.png";
 		}
 	}
 
