@@ -125,7 +125,7 @@
 				
 			}
 
-			$profile_pic = "";    // Profile Picture Assignment
+			$profile_pic = "/assets/images/profile_pic/defaults/default_profile_pic.jpeg";    // Profile Picture Assignment
 		}
 	}
 
