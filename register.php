@@ -124,6 +124,8 @@
 				$check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
 				
 			}
+
+			$profile_pic = "";    // Profile Picture Assignment
 		}
 	}
 
