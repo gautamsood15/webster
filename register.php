@@ -115,10 +115,16 @@
 		if (empty($error_arrray)) {
 			$password = md5($password);      // Encrypt password before sending to DB
 			$username = strtolower($fname . "_" . $lname);  // Generate username 
-			$check_username_query = mysqli_query();
+			$check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+
+			$i = 0;
+			while (mysqli_num_rows($check_username_query) != 0) {    //if username exist then add number to username
+				$i++;
+				$username = $username . "_" . $i;
+				$check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+				
+			}
 		}
-
-
 	}
 
 
