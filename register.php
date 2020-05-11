@@ -110,6 +110,15 @@
 			array_push($error_arrray, "Your password must be between 5 and 30 characters<br>");
 		}
 
+//----------------------------------------------------------------------------------
+
+		if (empty($error_arrray)) {
+			$password = md5($password);      // Encrypt password before sending to DB
+			$username = strtolower($fname . "_" . $lname);  // Generate username 
+			$check_username_query = mysqli_query();
+		}
+
+
 	}
 
 
