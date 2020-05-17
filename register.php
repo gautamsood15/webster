@@ -1,5 +1,5 @@
 <?php 
-	$con = mysqli_connect("localhost", "root", "", "TEST_CASE"); // DB connection variable
+	$con = mysqli_connect("localhost", "root", "", "webster"); // DB connection variable
 
 	if (mysqli_connect_errno()) 
 	{
@@ -50,7 +50,14 @@
 		if ($em == $em2) {                                               // Check if emial are same
 			
 			if (filter_var($em, FILTER_VALIDATE_EMAIL)) {                //Check if email is in valid form
+
 				$em = filter_var($em, FILTER_VALIDATE_EMAIL);
+
+				$e_check = mysqli_query($con, "SELECT email FROM users WHERE email='$em'");   // Checking if email already exists
+				$num_rows = mysqli_num_rows($e_check);
+				if ($num_rows == True) {
+					echo "Email already in use";
+				}
 		    }
 			else {
 				echo "Invalid format";
