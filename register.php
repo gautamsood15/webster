@@ -47,10 +47,20 @@
 		//Date -- get the current date
 		$date = date("Y-m-d");
 
-
+		if ($em == $em2) {                                               // Check if emial are same
+			
+			if (filter_var($em, FILTER_VALIDATE_EMAIL)) {                //Check if email is in valid form
+				$em = filter_var($em, FILTER_VALIDATE_EMAIL);
+		    }
+			else {
+				echo "Invalid format";
+			}
+		}
+		else {
+			echo "Emails don't match";
+		}
 	}
 
-	
 ?>
 
 
