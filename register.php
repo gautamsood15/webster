@@ -1,3 +1,59 @@
+<?php 
+	$con = mysqli_connect("localhost", "root", "", "TEST_CASE"); // DB connection variable
+
+	if (mysqli_connect_errno()) 
+	{
+		echo "Failed to connect: " . mysqli_connect_errno();
+	}
+
+	//Declaring variables for regised info
+	$fname = ""; // First Name
+	$lname = ""; // Last Name
+	$em = ""; // Email
+	$em2 = ""; // Confirm Email
+	$password = ""; // Password
+	$password2 = ""; // Password 2
+	$date = ""; // Sign up date
+	$error_arrray = ""; // Holds error messages
+
+	if (isset($_POST['register_button'])) {
+		
+		// Registration Form Values Fix before updating to DB
+
+		//First Name
+		$fname = strip_tags($_POST['reg_fname']); // Remove html tags
+		$fname = str_replace(' ', '', $fname); // Remove Spaces
+		$fname = ucfirst(strtolower($fname)); // Uppercase first letter
+
+		//Last Name
+		$lname = strip_tags($_POST['reg_lname']); 
+		$lname = str_replace(' ', '', $lname); 
+		$lname = ucfirst(strtolower($lname));
+
+		//Email
+		$em = strip_tags($_POST['reg_email']);
+		$em = str_replace(' ', '', $em);
+		$em = ucfirst(strtolower($em));
+
+		//Email 2 
+		$em2 = strip_tags($_POST['reg_email2']);
+		$em2 = str_replace(' ', '', $em2);
+		$em2 = ucfirst(strtolower($em2));
+
+		//Password
+		$password = strip_tags($_POST['reg_password']);
+		$password2 = strip_tags($_POST['reg_password2']);
+
+		//Date -- get the current date
+		$date = date("Y-m-d");
+
+
+	}
+
+	
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +61,7 @@
 </head>
 <body>
 
-	<form action="register.php" method="POST">
+	<form action="register.php" method="POST">                              <!-- basic form for  registeration -->
 		<input type="text" name="reg_fname" placeholder="First Name" required>
 		<br>
 		<input type="text" name="reg_lname" placeholder="Last Name" required>
