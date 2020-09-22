@@ -2,6 +2,7 @@
 
   require 'config/config.php';
 
+//check if in session and then get user data for the defiened user name
 
   if(isset($_SESSION['username'])) {                    
     $userLoggedIn = $_SESSION['username'];
