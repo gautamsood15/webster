@@ -26,4 +26,4 @@ TABLE_NAME = users
 9  num_posts 	   int(11)
 10 num_likes 	   int(11) 			
 11 user_closed 	   varchar(3) 	
-12 friend 	       text 	
+12 friend_array    text 	
