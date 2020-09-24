@@ -1,15 +1,10 @@
-<?php 
-	require 'config/config.php';
-
+<?php
+	include("includes/header.php");
+	session_destroy();
 
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
 Hello Reece !!!
+
 </body>
 </html>
