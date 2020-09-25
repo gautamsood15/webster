@@ -3,7 +3,7 @@
 
 ?>
 
-Hello Reece !!!
+Index page test
 
 </body>
 </html>
