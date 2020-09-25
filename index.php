@@ -1,6 +1,7 @@
 <?php
 	include("includes/header.php");
 
+
 ?>
 
 		<div class="user_details column">
