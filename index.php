@@ -45,10 +45,32 @@
 
 			?>
 
-
-
+			<img id="#loading" src="assets/images/icons/loading.gif">
 
 		</div>
+
+		<script>
+			var userLoggedIn = '<?php echo $userLoggedIn; ?>';
+
+
+			$(document).ready(function() {
+
+				$('#loading').show();
+			
+				// Original ajax request for loading first posts
+				$.ajax({
+					url: "includes/handlers/ajax_load_posts.php",
+					type: "POST",
+					data: "page=1$userLoggedIn=" + userLoggedIn,
+					cache: false,
+					
+				});
+
+
+			});
+
+
+		</script>
 
 	</div>
 </body>
