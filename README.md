@@ -53,7 +53,7 @@ TABLE_NAME = posts
 
 
 
-1	id 				int(11)			PRIMARY(AI)
+1	id 				int(11)			 PRIMARY(AI)
 2	body			text	
 3	added_by		varchar(60)	
 4	user_to			varchar(60)	
@@ -68,7 +68,7 @@ TABLE_NAME = posts
 TABLE_NAME = comments
 
 
-1 	id  	        int(11)                 PRIMARY(AI)
+1 	id  	        int(11)           PRIMARY(AI)
 2 	post_body 	    text
 3 	posted_by 	    varchar(60) 
 4 	posted_to 	    varchar(60) 
@@ -83,6 +83,18 @@ TABLE_NAME = friend_requests
 2 	user_to 		varchar(50)
 3 	user_from 		varchar(50)
 
+
+TABLE_NAME = messages
+
+
+1 	id Primary     	 int(11)             PRIMARY(AI)
+2 	user_to 	     varchar(50)
+3 	user_from 	     varchar(50)
+4 	body 	         text
+5 	date 	         datetime
+6 	opened 			 varchar(3) 
+7 	viewed 			 varchar(3)
+8 	deleted 	     varchar(3)	
 
 
 
