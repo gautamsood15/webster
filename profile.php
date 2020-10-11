@@ -37,10 +37,21 @@ if(isset($_POST['respond_request'])) {
  	<div class="profile_left">
  		<img src="<?php echo $user_array['profile_pic']; ?>">
 
+    <?php $logged_in_user_obj = new User($con, $userLoggedIn);   ?> 
+
  		<div class="profile_info">
  			<p><?php echo "Posts: " . $user_array['num_posts']; ?></p>
  			<p><?php echo "Likes: " . $user_array['num_likes']; ?></p>
  			<p><?php echo "Friends: " . $num_friends ?></p>
+
+    <p>
+      <?php  
+    if($userLoggedIn != $username)
+      echo $logged_in_user_obj->getMutualFriends($username) . " Mutual Friends";
+      ?>
+    </p>
+
+
  		</div>
 
  		<form action="<?php echo $username; ?>" method="POST">
@@ -50,7 +61,7 @@ if(isset($_POST['respond_request'])) {
  				header("Location: user_closed.php");
  			}
 
- 			$logged_in_user_obj = new User($con, $userLoggedIn); 
+ 			/* $logged_in_user_obj = new User($con, $userLoggedIn); */ 
 
  			if($userLoggedIn != $username) {
 
@@ -72,15 +83,6 @@ if(isset($_POST['respond_request'])) {
  		</form>
  		<input type="submit" class="deep_blue" data-toggle="modal" data-target="#post_form" value="Post Something">
 
-    <?php  
-    if($userLoggedIn != $username) {
-      echo '<div class="profile_info_bottom">';
-        echo $logged_in_user_obj->getMutualFriends($username) . " Mutual friends";
-      echo '</div>';
-    }
-
-
-    ?>
 
  	</div>
 

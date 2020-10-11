@@ -160,7 +160,7 @@ if (isset($_POST['x'])){
 	    
 	    <form action="upload.php" method="post"  enctype="multipart/form-data">
 	        Upload something<br /><br />
-	        <input type="file" id="image" name="image" style="width:200px; height:30px; " /><br /><br />
+	        <input type="file" id="image" name="image" style="width:400px; height:30px; " /><br /><br />
 	        <input type="submit" value="Submit" style="width:85px; height:25px;" />
 	    </form><br /><br />
 	    
@@ -183,7 +183,7 @@ if (isset($_POST['x'])){
 	           <p style="margin:0px; padding:0px; color:#444; font-size:18px;">          
 	                <b>Crop Profile Image</b><br /><br />
 	                <span style="font-size:14px;">
-	                    Crop / resize your uploaded profile image. <br />
+	                    Crop / resize your uploaded profile image.
 	                    Once you are happy with your profile image then please click save.
 
 	                </span>
@@ -206,7 +206,7 @@ if (isset($_POST['x'])){
 
 	        <div id="CropImageForm2" style="width:100px; height:30px; float:left; margin:10px 0px 0px 40px;" >  
 	            <form action="upload.php" method="post" onsubmit="return cancelCrop();">
-	                <input type="submit" value="Cancel Crop" style="width:100px; height:30px;"   />
+	                <input type="submit" value="Cancel" style="width:100px; height:30px;"   />
 	            </form>
 	        </div>            
 	            
