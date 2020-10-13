@@ -160,6 +160,14 @@
 			<?php
 
 		}
+
+		?>
+
+
+		<p style="text-align: center;">No more comments to show!</p>
+		
+		<?php
+
 	}
 	else {
 		echo "<center><br><br>No Comments to Show!</center>";
