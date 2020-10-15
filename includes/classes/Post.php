@@ -99,7 +99,7 @@ class Post {
 					}
 
 					if($userLoggedIn == $added_by)
-						$delete_button = "<button class='delete_button btn-danger' id='post$id'>X</button>";
+						$delete_button = "<button class='delete_button btn-warning' id='post$id'>X</button>";
 					else 
 						$delete_button = "";
 
@@ -301,7 +301,7 @@ class Post {
 					}
 
 					if($userLoggedIn == $added_by)
-						$delete_button = "<button class='delete_button btn-danger' id='post$id'>X</button>";
+						$delete_button = "<button class='delete_button btn-warning' id='post$id'>X</button>";
 					else 
 						$delete_button = "";
 
