@@ -8,8 +8,8 @@ $(document).ready(function() {
 			url: "includes/handlers/ajax_submit_profile_post.php",
 			data: $('form.profile_post').serialize(),
 			success: function(msg) {
-				$('#post_form'),modal('hide');
-				location.reload;
+				$('#post_form').modal('hide');
+				location.reload();
 			},
 			error: function() {
 				alert('Failure');
