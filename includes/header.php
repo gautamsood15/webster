@@ -17,14 +17,14 @@ else {
 
 <html>
 <head>
-	<title>Welcome to Swirlfeed</title>
+	<title>Welcome to Webster!</title>
 
 	<!-- Javascript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.js"></script>
 	<script src="assets/js/bootbox.min.js"></script>
-	<script src="assets/js/demo.js"></script>
-	<script src="assets/js/jquery.jcrop.js"></script>
+	<script src="assets/js/webster.js"></script>
+	<script src="assets/js/jquery.Jcrop.js"></script>
 	<script src="assets/js/jcrop_bits.js"></script>
 
 
@@ -42,7 +42,7 @@ else {
 	<div class="top_bar"> 
 
 		<div class="logo">
-			<a href="index.php">Swirlfeed!</a>
+			<a href="index.php">Webster!</a>
 		</div>
 
 		<nav>
