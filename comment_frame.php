@@ -5,6 +5,17 @@
 </head>
 <body>
 
+	<style type="text/css">
+		
+		* {
+			font-size: 12px;
+			font-family: Arial, Helvetica, Sans-serif;
+		}
+
+
+
+	</style>
+
 
 	<?php
 
@@ -55,7 +66,7 @@
 	if (isset($_POST['postComment' . $post_id])) {
 		$post_body = $_POST['post_body'];
 		$post_body = mysqli_escape_string($con, $post_body);
-		$date_time_now = date('Y-m-d H:i:s');
+		$date_time_now = date("Y-m-d H:i:s");
 		$insert_post = mysqli_query($con, "INSERT INTO comments VALUES (NULL, '$post_body', '$userLoggedIn', '$posted_to', $date_time_now, 'no', '$post_id')");
 		echo "<p>Commnet Posted! </p>";
 	}
@@ -160,7 +171,7 @@
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $time_message . "<br>" . $comment_body; ?>
 	</div>
 	
-	
+
 
 
 	<?php

@@ -112,7 +112,7 @@ class Post {
 
 					<script>
 						
-						function toggle<?php  echo $id;  ?>() {
+						function toggle<?php echo $id; ?>() {
 							var element = document.getElementById("toggleComment<?php echo $id; ?>");
 
 							if (element.style.display == "block")
