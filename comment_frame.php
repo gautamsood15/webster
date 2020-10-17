@@ -170,7 +170,7 @@
 		<a href="<?php echo $posted_by ?>" target="_parent"> <b> <?php echo $user_obj->getFirstAndLastName(); ?> </b> </a>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $time_message . "<br>" . $comment_body; ?>
 	</div>
-	
+
 
 
 
