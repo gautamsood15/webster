@@ -150,6 +150,21 @@
 			
 			$user_obj = new User($con, $posted_by);
 
+
+	?>
+
+	<div class="comment_section">
+		<a href="<?php echo $posted_by ?>" target="_parent"><img src="<?php echo $user_obj->getProfilePic(); ?>" title="<?php echo $posted_by; ?>" style="float: left;" height="30"></a>
+
+		<a href="<?php echo $posted_by ?>" target="_parent"> <b> <?php echo $user_obj->getFirstAndLastName(); ?> </b> </a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $time_message . "<br>" . $comment_body; ?>
+	</div>
+	
+	
+
+
+	<?php
+
 		}
 	}
 
@@ -158,10 +173,6 @@
 	?>
 
 
-	<div class="comment_section">
-		<a href="<?php echo $posted_by ?>" target="_parent">Mickey_mouse</a>
-	</div>
-	
 
 
 </body>
