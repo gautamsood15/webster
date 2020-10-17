@@ -1,3 +1,24 @@
+<?php
+
+	require 'config/config.php';
+	include("includes/classes/User.php");
+	include("includes/classes/Post.php");
+
+	//check if in session and then get user data for the defiened user name
+
+	if(isset($_SESSION['username'])) {                    
+		$userLoggedIn = $_SESSION['username'];
+		$user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
+		$user = mysqli_fetch_array($user_details_query);
+	 
+		}
+
+	else {
+		header("Location: register.php");
+		}
+?>
+
+
 <html>
 <head>
 	<title></title>
@@ -15,29 +36,6 @@
 
 
 	</style>
-
-
-	<?php
-
-		require 'config/config.php';
-		include("includes/classes/User.php");
-		include("includes/classes/Post.php");
-
-		//check if in session and then get user data for the defiened user name
-
-		if(isset($_SESSION['username'])) {                    
-			$userLoggedIn = $_SESSION['username'];
-			$user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
-			$user = mysqli_fetch_array($user_details_query);
-		 
-			}
-
-		else {
-			header("Location: register.php");
-			}
-
-	?>
-
 
 	<script>
 		
@@ -67,7 +65,8 @@
 		$post_body = $_POST['post_body'];
 		$post_body = mysqli_escape_string($con, $post_body);
 		$date_time_now = date("Y-m-d H:i:s");
-		$insert_post = mysqli_query($con, "INSERT INTO comments VALUES (NULL, '$post_body', '$userLoggedIn', '$posted_to', $date_time_now, 'no', '$post_id')");
+		$insert_post = mysqli_query($con, "INSERT INTO comments VALUES (NULL, '$post_body', '$userLoggedIn', '$posted_to', '$date_time_now', 'no', '$post_id')");
+		echo "Error: " . mysqli_error($con);
 		echo "<p>Commnet Posted! </p>";
 	}
 
