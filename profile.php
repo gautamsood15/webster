@@ -40,7 +40,7 @@
 
 	</style>
 
-	<div class="pofile_left">
+	<div class="profile_left">
 		<img src="<?php echo $user_array['profile_pic']; ?>">
 
 		<div class="profile_info">
