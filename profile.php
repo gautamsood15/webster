@@ -44,13 +44,17 @@ if(isset($_POST['respond_request'])) {
  			<p><?php echo "Likes: " . $user_array['num_likes']; ?></p>
  			<p><?php echo "Friends: " . $num_friends ?></p>
 
-    <p>
+      <p>
       <?php  
-    if($userLoggedIn != $username)
-      echo $logged_in_user_obj->getMutualFriends($username) . " Mutual Friends";
-      ?>
-    </p>
+      if($userLoggedIn != $username) {
+      
+        echo " Mutual friends: " . $logged_in_user_obj->getMutualFriends($username);
+     
+      }
 
+
+      ?>
+      </p>
 
  		</div>
 
