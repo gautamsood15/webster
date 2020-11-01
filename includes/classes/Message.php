@@ -33,6 +33,10 @@ class Message {
 			$userLoggedIn = $this->user_obj->getUsername();
 			$query = mysqli_query($this->con, "INSERT INTO messages VALUES(NULL, '$user_to', '$userLoggedIn', '$body', '$date', 'no', 'no', 'no')");
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbcda40734f02b11627c70577c33a6d9cd28d2ac
 	}
 
 	public function getMessages($otherUser) {
@@ -52,22 +56,35 @@ class Message {
 			$data = $data . $div_top . $body . "</div><br><br>";
 		}
 		return $data;
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbcda40734f02b11627c70577c33a6d9cd28d2ac
 	}
 
 	public function getLatestMessage($userLoggedIn, $user2) {
 		$details_array = array();
 
+<<<<<<< HEAD
 		$query = mysqli_query($this->con, "SELECT body, user_to, date FROM messages WHERE (user_to='$userLoggedIn' AND user_from='$user2') OR (user_to='$user2' AND user_from='$userLoggedIn') ORDER BY id DESC LIMIT 1");
+=======
+		$query = mysqli_query($this->con, "SELECT  body, user_to, date FROM messages WHERE (user_to='$userLoggedIn' AND user_from='$user2') OR (user_to='$user2' AND user_from='$userLoggedIn') ORDER BY id DESC LIMIT 1");
+>>>>>>> fbcda40734f02b11627c70577c33a6d9cd28d2ac
 
 		$row = mysqli_fetch_array($query);
 		$sent_by = ($row['user_to'] == $userLoggedIn) ? "They said: " : "You said: ";
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fbcda40734f02b11627c70577c33a6d9cd28d2ac
 		//Timeframe
 		$date_time_now = date("Y-m-d H:i:s");
 		$start_date = new DateTime($row['date']); //Time of post
 		$end_date = new DateTime($date_time_now); //Current time
 		$interval = $start_date->diff($end_date); //Difference between dates 
 		if($interval->y >= 1) {
+<<<<<<< HEAD
 			if($interval == 1)
 				$time_message = $interval->y . " year ago"; //1 year ago
 			else 
@@ -124,6 +141,63 @@ class Message {
 			else {
 				$time_message = $interval->s . " seconds ago";
 			}
+=======
+						if($interval == 1)
+							$time_message = $interval->y . " year ago"; //1 year ago
+						else 
+							$time_message = $interval->y . " years ago"; //1+ year ago
+		}
+		else if ($interval->m >= 1) {
+						if($interval->d == 0) {
+							$days = " ago";
+						}
+						else if($interval->d == 1) {
+							$days = $interval->d . " day ago";
+						}
+						else {
+							$days = $interval->d . " days ago";
+						}
+
+
+						if($interval->m == 1) {
+							$time_message = $interval->m . " month". $days;
+						}
+						else {
+							$time_message = $interval->m . " months". $days;
+						}
+		}
+		else if($interval->d >= 1) {
+						if($interval->d == 1) {
+							$time_message = "Yesterday";
+						}
+						else {
+							$time_message = $interval->d . " days ago";
+						}
+		}
+		else if($interval->h >= 1) {
+						if($interval->h == 1) {
+							$time_message = $interval->h . " hour ago";
+						}
+						else {
+							$time_message = $interval->h . " hours ago";
+						}
+		}
+		else if($interval->i >= 1) {
+						if($interval->i == 1) {
+							$time_message = $interval->i . " minute ago";
+						}
+						else {
+							$time_message = $interval->i . " minutes ago";
+						}
+		}
+		else {
+						if($interval->s < 30) {
+							$time_message = "Just now";
+						}
+						else {
+							$time_message = $interval->s . " seconds ago";
+						}
+>>>>>>> fbcda40734f02b11627c70577c33a6d9cd28d2ac
 		}
 
 		array_push($details_array, $sent_by);
@@ -131,6 +205,10 @@ class Message {
 		array_push($details_array, $time_message);
 
 		return $details_array;
+<<<<<<< HEAD
+=======
+	
+>>>>>>> fbcda40734f02b11627c70577c33a6d9cd28d2ac
 	}
 
 	public function getConvos() {
@@ -148,6 +226,7 @@ class Message {
 			}
 		}
 
+<<<<<<< HEAD
 		foreach($convos as $username) {
 			$user_found_obj = new User($this->con, $username);
 			$latest_message_details = $this->getLatestMessage($userLoggedIn, $username);
@@ -163,6 +242,25 @@ class Message {
 								<p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
 								</div>
 								</a>";
+=======
+		foreach ($convos as $username) {
+			$user_found_obj = new User($this->con, $username);
+			$latest_message_details = $this->getLatestMessage($userLoggedIn, $username);
+		
+			$dots = (strlen($latest_message_details[1]) >= 12) ? "..." : "";
+			$split = str_split($latest_message_details[1], 12);
+			$split = $split[0] . $dots;
+
+			$return_string .= "<a href='messages.php?u=$username'> <div class='user_found_messages'> 
+			                   <img src='" . $user_found_obj->getProfilePic() . "' style='border-radius:5px; margin-right: 5px;'>
+			                   " . $user_found_obj->getFirstAndLastName() . "
+			                   <span class='timestamp_smaller' id='grey'> " . $latest_message_details[2] . $split . "</span>
+			                   <p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
+			                   </div>
+			                   </a>";
+
+
+>>>>>>> fbcda40734f02b11627c70577c33a6d9cd28d2ac
 		}
 
 		return $return_string;
