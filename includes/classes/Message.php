@@ -6,6 +6,7 @@ class Message {
 	public function __construct($con, $user){
 		$this->con = $con;
 		$this->user_obj = new User($con, $user);
+	
 	}
 
 	public function getMostRecentUser() {
@@ -243,7 +244,13 @@ class Message {
 	
 	}
 
+	public function getUnreadNumber() {
+		$userLoggedIn = $this->user_obj->getUsername();
+		$query = mysqli_query($this->con, "SELECT * FROM messages WHERE viewed='no' AND user_to='$userLoggedIn'");
+		return mysqli_num_rows($query);
 	}
+
+}
 
 
 ?>
