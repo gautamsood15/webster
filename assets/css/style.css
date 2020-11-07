@@ -516,3 +516,38 @@ textarea:focus {
 	font-size: 85%;
 	margin: 0;
 }
+
+.search {
+	margin-top: 6px;
+	margin-bottom: 6px;
+	margin-right: 0px;
+	margin-left: 200px;
+}
+
+.search #search_text_input {
+	border: thin solid #E5E5E5;
+	float: left;
+	height: 30px;
+	outline: 0;
+	width: 200px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	padding: 5px;
+}
+
+.button_holder {
+	background-color: #F1F1F1;
+	border:  thin solid #e5e5e5;
+	cursor: pointer;
+	float: left;
+	height: 30px;
+	text-align: center;
+	width: 60px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.button_holder img {
+	margin-top: -1px;
+	width: 30px;
+}
