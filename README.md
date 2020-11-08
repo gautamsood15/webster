@@ -60,7 +60,8 @@ TABLE_NAME = posts
 5	date_added		datetime			
 6	user_closed		varchar(3)	
 7	deleted			varchar(3)		
-8	likes			int(11)			
+8	likes			int(11)		
+9 	image 			varchar(500) 	
 
 
 
