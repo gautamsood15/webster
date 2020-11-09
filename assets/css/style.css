@@ -642,7 +642,7 @@ textarea:focus {
 }
 
 
-.fileToUpload {
+#fileToUpload {
 	width: 30%;
 	margin-top: 9px;
 	position: absolute;
