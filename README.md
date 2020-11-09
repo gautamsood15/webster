@@ -112,8 +112,10 @@ TABLE_NAME  = notifications
 
 
 
+TABLE_NAME = trends
 
-
+1 	title 			 varchar(50)
+2 	hits 			 int(11)
 
 
 

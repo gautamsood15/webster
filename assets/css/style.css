@@ -640,3 +640,11 @@ textarea:focus {
 	display: block;
 	margin: 5px auto;
 }
+
+
+.fileToUpload {
+	width: 30%;
+	margin-top: 9px;
+	position: absolute;
+	
+}

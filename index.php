@@ -69,8 +69,8 @@ if(isset($_POST['post'])){
 
 	<div class="main_column column">
 		<form class="post_form" action="index.php" method="POST" enctype="multipart/form-data">
-			<input type="file" name="fileToUpload" id="fileToUpload">
 			<textarea name="post_text" id="post_text" placeholder="Got something to say?"></textarea>
+			<input type="file" name="fileToUpload" id="fileToUpload">
 			<input type="submit" name="post" id="post_button" value="Post">
 			<br>
 			<br>
