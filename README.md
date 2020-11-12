@@ -6,10 +6,10 @@ It is made up of JS, PHP, and MySql to store all the data.
 
 Xampp server is required to run the search engine
 
-Schema for database for saving all the sites data.
+Schema for database for saving all the sites data is also included.
 
 
-List of external 4 party CDN used --
+List of external 3rd party CDN used --
 
 1 bootstrap
 2 jquery
